@@ -26,10 +26,15 @@ Fonts:
 /* Set up the main font and background color for the whole page */
 body {
   background-color: white; /* Soft light blue for a fresh look */
-  font-family: 'Proxima Nova', "Avenir"; /* Use Proxima Nova or Avenir font */
+  font-family: 'Proxima Nova', 'Avenir', sans-serif; /* Use Proxima Nova or Avenir font */
   margin: 0;
   padding: 0;
   color: #222;
+}
+
+/* Make sure all text uses the same font */
+h1, h2, h3, h4, h5, h6, p, button {
+  font-family: inherit; /* Inherit Proxima Nova from body */
 }
 
 /* Logo image at the top of the text section */
@@ -37,6 +42,8 @@ body {
   width: 300px; /* Much larger logo */
   display: block;
   margin-bottom: 24px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 /* Main impact photo on the right - smaller size */
@@ -53,10 +60,12 @@ body {
 /* Main headline style */
 .main-headline {
   color: #1a1a1a;
-  font-size: 2.5em;
-  margin-bottom: 18px;
+  font-size: 5em;
+  margin-bottom: 20px;
   margin-top: 0;
-  font-weight: bold;
+  margin-left: 0;
+  text-align: left; /* Left align text */
+  font-weight: 400; /* Make the font thinner */
 }
 
 /* Subheadline style */
@@ -65,4 +74,72 @@ body {
   font-size: 1.2em;
   margin-top: 0;
   margin-bottom: 0;
+  text-align: left; /* Left align text */
+}
+
+/* Hero section layout */
+.hero {
+  display: flex;
+  align-items: stretch;
+  justify-content: center;
+  min-height: 300px;
+  position: relative;
+  /* Set the wave image as the background for the whole hero section */
+  background: url('img/wave.jpg') no-repeat center bottom;
+  background-size: cover;
+}
+
+/* Left side of hero section */
+.hero-left {
+  flex: 1;
+  min-width: 220px;
+  max-width: 480px;
+  z-index: 1;
+  padding: 32px 24px;
+  margin: 24px 0 24px 24px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start; /* Logo stays at the top */
+  align-items: center; /* Center all content horizontally */
+  position: relative;
+}
+
+/* Center the headline, subheadline, and button in the white space */
+.headline-group {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start; /* Left align content */
+  justify-content: flex-start;
+  width: 100%;
+  margin-top: 120px; /* Move the group lower in the white space */
+  margin-left: 150px; /* Add left margin to center in the white space */
+}
+
+/* Right side of hero section */
+.hero-right {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: flex-end;
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+
+/* Call-to-action button styles */
+.cta-button {
+  background-color: #FFC907; /* Bright yellow */
+  color: #222; /* Dark text for contrast */
+  border: none;
+  border-radius: 24px; /* Makes the button round */
+  padding: 14px 32px;
+  font-size: 1.1em;
+  margin-top: 24px;
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+  transition: background 0.2s;
+}
+.cta-button:hover {
+  background-color: #ffd84d; /* Slightly lighter on hover */
 }
