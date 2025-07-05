@@ -9,18 +9,20 @@
 </head>
 <body>
   <!-- Main container for the hero section -->
-  <section class="hero" style="display: flex; align-items: center; justify-content: center; min-height: 400px; position: relative;">
+  <section class="hero" style="display: flex; align-items: stretch; justify-content: center; min-height: 400px; position: relative;">
     <!-- Left side: Text content -->
-    <div style="flex: 1; min-width: 220px; max-width: 480px; z-index: 1; background: rgba(255,255,255,0.85); border-radius: 12px; padding: 32px 24px; margin: 24px;">
+    <div style="flex: 1; min-width: 220px; max-width: 480px; z-index: 1; background: rgba(255,255,255,0.85); border-radius: 12px; padding: 32px 24px; margin: 24px 0 24px 24px;">
+      <!-- Logo at the top -->
+      <img src="img/cw_logo-2.png" alt="charity: water logo" class="logo-img">
       <!-- Main heading -->
-      <h1 style="color: #222; font-size: 2.5em; margin-bottom: 18px;">A Drop of Hope</h1>
+      <h1 class="main-headline">A Drop of Hope</h1>
       <!-- Subheadline -->
-      <p style="color: #2E9DF7; font-size: 1.2em; margin-top: 0;">Every dollar makes a wave—<br>See the hope it helps to pave!</p>
+      <p class="subheadline">Every dollar makes a wave—<br>See the hope it helps to pave!</p>
     </div>
-    <!-- Right side: Image -->
-    <div style="flex: 1; display: flex; justify-content: center; align-items: center;">
-      <!-- Impact photo -->
-      <img src="img/photo1.jpg" alt="Child at water tap" style="width: 100%; max-width: 350px; border-radius: 12px; box-shadow: 0 2px 8px rgba(0,0,0,0.10);">
+    <!-- Right side: Image, flush to the right edge -->
+    <div style="flex: 1; display: flex; justify-content: flex-end; align-items: stretch; margin: 0; padding: 0;">
+      <!-- Impact photo, no border radius, no white space -->
+      <img src="img/photo1.jpg" alt="Child at water tap" class="impact-photo" style="height: 100%; object-fit: cover; border-radius: 0; margin: 0; padding: 0;">
     </div>
   </section>
 </body>

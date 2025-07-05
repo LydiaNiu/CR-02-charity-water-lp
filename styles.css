@@ -31,3 +31,38 @@ body {
   padding: 0;
   color: #222;
 }
+
+/* Logo image at the top of the text section */
+.logo-img {
+  width: 300px; /* Much larger logo */
+  display: block;
+  margin-bottom: 24px;
+}
+
+/* Main impact photo on the right - smaller size */
+.impact-photo {
+  width: 100%;
+  max-width: 450px; /* Smaller photo */
+  border-radius: 0;
+  box-shadow: none;
+  display: block;
+  margin: 0;
+  padding: 0;
+}
+
+/* Main headline style */
+.main-headline {
+  color: #1a1a1a;
+  font-size: 2.5em;
+  margin-bottom: 18px;
+  margin-top: 0;
+  font-weight: bold;
+}
+
+/* Subheadline style */
+.subheadline {
+  color: #1a1a1a;
+  font-size: 1.2em;
+  margin-top: 0;
+  margin-bottom: 0;
+}
