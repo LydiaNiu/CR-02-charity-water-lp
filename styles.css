@@ -37,11 +37,23 @@ h1, h2, h3, h4, h5, h6, p, button {
   font-family: inherit; /* Inherit Proxima Nova from body */
 }
 
-/* Logo image at the top of the page */
+/* Fixed header at the top */
+.header {
+  position: fixed; /* Stay at top when scrolling */
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: white; /* White background for header */
+  padding: 16px 24px; /* Padding around header content */
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1); /* Subtle shadow */
+  z-index: 1000; /* Stay above other content */
+}
+
+/* Logo image in the header - pushed to the left */
 .logo-img {
-  width: 350px; /* Large logo */
+  width: 200px; /* Smaller logo for header */
   display: block;
-  margin: 24px auto;
+  margin: 0; /* Remove auto margins to keep it left */
 }
 
 /* Main container styles */
@@ -50,6 +62,7 @@ h1, h2, h3, h4, h5, h6, p, button {
   background: url('img/wave.jpg') no-repeat center 70%;
   background-size: cover;
   padding: 20px;
+  padding-top: 100px; /* Add space for fixed header */
 }
 
 /* Content section with flexbox layout */
