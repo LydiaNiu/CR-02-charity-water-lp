@@ -279,3 +279,14 @@ h1, h2, h3, h4, h5, h6, p, button {
 .cta-button:hover {
   background-color: #FFC907;
 }
+
+/* Wave animation */
+
+.wave {
+  animation: waveMove 8s ease-in-out infinite alternate;
+}
+
+@keyframes waveMove {
+  from { transform: translateX(0); }
+  to   { transform: translateX(20px); }
+}
