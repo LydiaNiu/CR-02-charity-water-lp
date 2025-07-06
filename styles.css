@@ -49,12 +49,12 @@ h1, h2, h3, h4, h5, h6, p, button {
   z-index: 1000; /* Stay above other content */
   display: flex; /* Use flexbox for layout */
   align-items: center; /* Center items vertically */
-  justify-content: space-between; /* Space between logo and nav */
+  justify-content: flex-start; /* Start from left */
 }
 
 /* Logo image in the header - pushed to the left */
 .logo-img {
-  width: 250px; /* Bigger logo for header */
+  width: 200px; /* Smaller logo for header */
   display: block;
   margin: 0; /* Remove auto margins to keep it left */
 }
@@ -63,9 +63,9 @@ h1, h2, h3, h4, h5, h6, p, button {
 .nav-menu {
   display: flex; /* Arrange links horizontally */
   gap: 32px; /* Space between navigation links */
-  margin-right: auto; /* Push to center by taking remaining space */
-  margin-left: auto; /* Center the navigation */
   align-items: center; /* Center items vertically */
+  margin-left: auto; /* Push navigation to the right */
+  margin-right: 8px; /* Add right margin to prevent cutoff */
 }
 
 /* Dropdown container */
@@ -114,6 +114,18 @@ h1, h2, h3, h4, h5, h6, p, button {
   transform: translateY(0); /* Move to normal position */
 }
 
+/* Arrow styling for dropdown menus */
+.arrow {
+  display: inline-block; /* Ensure proper display */
+  margin-left: 4px; /* Small space before arrow */
+  transition: transform 0.2s ease; /* Smooth rotation transition */
+}
+
+/* Rotate arrow on hover to create up/down effect */
+.dropdown:hover .arrow {
+  transform: rotate(180deg); /* Flip the arrow upside down */
+}
+
 /* Dropdown menu items */
 .dropdown-menu a {
   display: block; /* Full width clickable area */
@@ -140,7 +152,28 @@ h1, h2, h3, h4, h5, h6, p, button {
 /* Dropdown item hover effect */
 .dropdown-menu a:hover {
   background-color: #f5f5f5; /* Light gray background */
-  border-bottom: none; /* No underline in dropdown */
+}
+
+/* Header CTA button - positioned to the right */
+.header .header-cta {
+  background-color: #FFC907 !important; /* Bright yellow */
+  color: #222 !important; /* Dark text for contrast */
+  border: none !important;
+  border-radius: 8px !important; /* Small rounded button */
+  padding: 6px 12px !important; /* Small padding */
+  font-size: 0.8em !important; /* Small font size */
+  font-weight: 500 !important; /* Medium weight */
+  cursor: pointer;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  transition: background-color 0.2s, transform 0.2s;
+  margin-left: 16px; /* Small gap between nav and button */
+  margin-right: 40px; /* Larger right margin to prevent cutoff */
+  margin-top: 0 !important; /* Override main button margin */
+}
+
+.header .header-cta:hover {
+  background-color: #ffdd4d !important; /* Slightly lighter on hover */
+  transform: translateY(-1px); /* Subtle lift effect */
 }
 
 /* Responsive design for mobile */
@@ -171,8 +204,9 @@ h1, h2, h3, h4, h5, h6, p, button {
   min-height: 100vh;
   background: url('img/wave.jpg') no-repeat center 70%;
   background-size: cover;
-  padding: 20px;
-  padding-top: 100px; /* Add space for fixed header */
+  padding: 0; /* Remove all padding */
+  padding-top: 60px; /* Minimal space for fixed header */
+  margin: 0; /* Remove any margin */
 }
 
 /* Content section with flexbox layout */
@@ -180,8 +214,9 @@ h1, h2, h3, h4, h5, h6, p, button {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  max-width: 1200px;
-  margin: 0 auto;
+  max-width: none; /* Remove max-width to allow full width */
+  margin: 0; /* Remove auto margin */
+  padding: 0; /* Remove all padding including horizontal */
   min-height: 70vh;
 }
 
@@ -189,6 +224,7 @@ h1, h2, h3, h4, h5, h6, p, button {
 .text-content {
   flex: 1;
   max-width: 600px;
+  padding-left: 20px; /* Add left padding only to text content */
 }
 
 /* Image content area */
@@ -210,7 +246,7 @@ h1, h2, h3, h4, h5, h6, p, button {
   color: #1a1a1a;
   font-size: 6em;
   margin-bottom: 20px;
-  margin-top: 10px;
+  margin-top: 0; /* Remove top margin */
   margin-left: 0;
   text-align: left; /* Left align text */
   font-weight: 400; /* Make the font thinner */
