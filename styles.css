@@ -39,7 +39,7 @@ h1, h2, h3, h4, h5, h6, p, button {
 
 /* Logo image at the top of the text section */
 .logo-img {
-  width: 300px; /* Much larger logo */
+  width: 400px; /* Even larger logo */
   display: block;
   margin-bottom: 24px;
   margin-left: auto;
@@ -60,9 +60,9 @@ h1, h2, h3, h4, h5, h6, p, button {
 /* Main headline style */
 .main-headline {
   color: #1a1a1a;
-  font-size: 5em;
+  font-size: 6em;
   margin-bottom: 20px;
-  margin-top: 0;
+  margin-top: 10px;
   margin-left: 0;
   text-align: left; /* Left align text */
   font-weight: 400; /* Make the font thinner */
@@ -71,7 +71,7 @@ h1, h2, h3, h4, h5, h6, p, button {
 /* Subheadline style */
 .subheadline {
   color: #1a1a1a;
-  font-size: 1.2em;
+  font-size: 1.4em;
   margin-top: 0;
   margin-bottom: 0;
   text-align: left; /* Left align text */
@@ -85,7 +85,7 @@ h1, h2, h3, h4, h5, h6, p, button {
   min-height: 300px;
   position: relative;
   /* Set the wave image as the background for the whole hero section */
-  background: url('img/wave.jpg') no-repeat center bottom;
+  background: url('img/wave.jpg') no-repeat center 80%;
   background-size: cover;
 }
 
@@ -109,10 +109,11 @@ h1, h2, h3, h4, h5, h6, p, button {
   display: flex;
   flex-direction: column;
   align-items: flex-start; /* Left align content */
-  justify-content: flex-start;
+  justify-content: center; /* Center vertically */
   width: 100%;
-  margin-top: 120px; /* Move the group lower in the white space */
+  margin-top: 0; /* Remove top margin to allow centering */
   margin-left: 150px; /* Add left margin to center in the white space */
+  height: 100%; /* Take full height to enable vertical centering */
 }
 
 /* Right side of hero section */
@@ -132,14 +133,14 @@ h1, h2, h3, h4, h5, h6, p, button {
   background-color: #FFC907; /* Bright yellow */
   color: #222; /* Dark text for contrast */
   border: none;
-  border-radius: 24px; /* Makes the button round */
-  padding: 14px 32px;
-  font-size: 1.1em;
+  border-radius: 30px; /* Makes the button round */
+  padding: 20px 40px; /* Bigger padding for larger button */
+  font-size: 1.3em; /* Larger font size */
   margin-top: 24px;
   cursor: pointer;
   box-shadow: 0 2px 8px rgba(0,0,0,0.07);
   transition: background 0.2s;
 }
 .cta-button:hover {
-  background-color: #ffd84d; /* Slightly lighter on hover */
+  background-color: #FFC907;
 }
