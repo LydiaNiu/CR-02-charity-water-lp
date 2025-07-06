@@ -47,13 +47,41 @@ h1, h2, h3, h4, h5, h6, p, button {
   padding: 16px 24px; /* Padding around header content */
   box-shadow: 0 2px 4px rgba(0,0,0,0.1); /* Subtle shadow */
   z-index: 1000; /* Stay above other content */
+  display: flex; /* Use flexbox for layout */
+  align-items: center; /* Center items vertically */
+  justify-content: space-between; /* Space between logo and nav */
 }
 
 /* Logo image in the header - pushed to the left */
 .logo-img {
-  width: 200px; /* Smaller logo for header */
+  width: 250px; /* Bigger logo for header */
   display: block;
   margin: 0; /* Remove auto margins to keep it left */
+}
+
+/* Navigation menu in the header */
+.nav-menu {
+  display: flex; /* Arrange links horizontally */
+  gap: 32px; /* Space between navigation links */
+  margin-right: auto; /* Push to center by taking remaining space */
+  margin-left: auto; /* Center the navigation */
+}
+
+/* Navigation link styles */
+.nav-menu a {
+  color: #222; /* Dark text color */
+  text-decoration: none; /* Remove underlines */
+  font-size: 1.1em; /* Slightly larger text */
+  font-weight: 500; /* Medium weight for readability */
+  padding: 8px 16px; /* Padding around each link */
+  border-radius: 20px; /* Rounded corners */
+  transition: background-color 0.2s, color 0.2s; /* Smooth hover effect */
+}
+
+/* Navigation link hover effect */
+.nav-menu a:hover {
+  background-color: #FFC907; /* Yellow background on hover */
+  color: #222; /* Keep text dark */
 }
 
 /* Main container styles */
