@@ -24,11 +24,11 @@ Fonts:
 
 /* Set up the main font and background color for the whole page */
 body {
-  background-color: white; /* Soft light blue for a fresh look */
+  background-color: white; /* Keep white as neutral background */
   font-family: 'Proxima Nova', 'Avenir', sans-serif; /* Use Proxima Nova or Avenir font */
   margin: 0;
   padding: 0;
-  color: #222;
+  color: #1a1a1a; /* Black text */
 }
 
 /* Make sure all text uses the same font */
@@ -44,7 +44,10 @@ h1, h2, h3, h4, h5, h6, p, button {
   width: 100%;
   background-color: white; /* White background for header */
   padding: 16px 24px; /* Padding around header content */
-  box-shadow: 0 2px 4px rgba(0,0,0,0.1); /* Subtle shadow */
+  box-shadow: 
+    0 2px 4px rgba(0, 0, 0, 0.1), /* Subtle shadow */
+    0 4px 8px rgba(0, 0, 0, 0.05), /* Softer outer shadow */
+    0 1px 2px rgba(0, 0, 0, 0.1); /* Additional depth shadow */
   z-index: 1000; /* Stay above other content */
   display: flex; /* Use flexbox for layout */
   align-items: center; /* Center items vertically */
@@ -75,7 +78,7 @@ h1, h2, h3, h4, h5, h6, p, button {
 
 /* Navigation link styles */
 .nav-menu a {
-  color: #222; /* Dark text color */
+  color: #1a1a1a; /* Black text color */
   text-decoration: none; /* Remove underlines */
   font-size: 1.1em; /* Slightly larger text */
   font-weight: 500; /* Medium weight for readability */
@@ -97,7 +100,6 @@ h1, h2, h3, h4, h5, h6, p, button {
   left: 0;
   background-color: white; /* White background */
   border-radius: 8px; /* Rounded corners */
-  box-shadow: 0 4px 12px rgba(0,0,0,0.15); /* Modern shadow */
   min-width: 200px; /* Minimum width */
   opacity: 0; /* Hidden by default */
   visibility: hidden; /* Hidden by default */
@@ -129,7 +131,7 @@ h1, h2, h3, h4, h5, h6, p, button {
 .dropdown-menu a {
   display: block; /* Full width clickable area */
   padding: 12px 16px; /* Comfortable padding */
-  color: #222; /* Dark text */
+  color: #1a1a1a; /* Black text */
   text-decoration: none; /* No underlines */
   font-size: 1em; /* Normal font size */
   border-bottom: none; /* Remove border */
@@ -150,20 +152,20 @@ h1, h2, h3, h4, h5, h6, p, button {
 
 /* Dropdown item hover effect */
 .dropdown-menu a:hover {
-  background-color: #f5f5f5; /* Light gray background */
+  background-color: white !important; /* White background on hover with high specificity */
 }
 
 /* Header CTA button - positioned to the right */
 .header .cta-button.header-cta {
   background-color: #FFC907 !important; /* Bright yellow */
-  color: #222 !important; /* Dark text for contrast */
+  color: #1a1a1a !important; /* Black text for contrast */
   border: none !important;
   border-radius: 12px !important; /* Larger rounded button */
   padding: 12px 24px !important; /* Bigger padding */
   font-size: 1.1em !important; /* Larger font size */
   font-weight: 600 !important; /* Bolder weight */
   cursor: pointer !important;
-  box-shadow: 0 3px 8px rgba(0,0,0,0.15) !important;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.15) !important; /* Default shadow */
   transition: background-color 0.2s, transform 0.2s !important;
   margin-left: 16px !important; /* Small gap between nav and button */
   margin-right: 40px !important; /* Larger right margin to prevent cutoff */
@@ -174,9 +176,9 @@ h1, h2, h3, h4, h5, h6, p, button {
 }
 
 .header .cta-button.header-cta:hover {
-  background-color: #ffdd4d !important; /* Slightly lighter on hover */
+  background-color: #ffdd4d !important; /* Light yellow on hover */
   transform: translateY(-1px) !important; /* Subtle lift effect */
-  box-shadow: 0 4px 12px rgba(0,0,0,0.2) !important; /* Enhanced shadow on hover */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2) !important; /* Enhanced shadow on hover */
 }
 
 /* Responsive design for different screen sizes */
@@ -414,7 +416,7 @@ h1, h2, h3, h4, h5, h6, p, button {
 
 /* Main headline style */
 .main-headline {
-  color: #1a1a1a;
+  color: #1a1a1a; /* Black color */
   font-size: 6em;
   margin-bottom: 20px;
   margin-top: 0; /* Remove top margin */
@@ -429,7 +431,7 @@ h1, h2, h3, h4, h5, h6, p, button {
 
 /* Subheadline style */
 .subheadline {
-  color: #1a1a1a;
+  color: #1a1a1a; /* Black color */
   font-size: 1.4em;
   margin-top: 0;
   margin-bottom: 0;
@@ -443,7 +445,7 @@ h1, h2, h3, h4, h5, h6, p, button {
 /* Call-to-action button styles */
 .cta-button {
   background-color: #FFC907; /* Bright yellow */
-  color: #222; /* Dark text for contrast */
+  color: #1a1a1a; /* Black text for contrast */
   border: none;
   border-radius: 30px; /* Makes the button round */
   padding: 20px 40px; /* Bigger padding for larger button */
@@ -451,11 +453,11 @@ h1, h2, h3, h4, h5, h6, p, button {
   font-weight: 400; /* Make the button text thicker */
   margin-top: 24px; /* Space above button */
   cursor: pointer;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); /* Default shadow */
   transition: background 0.2s;
 }
 .cta-button:hover {
-  background-color: #FFC907;
+  background-color: #ffdd4d; /* Light yellow on hover */
 }
 
 /* Wave animation */
