@@ -54,11 +54,25 @@ h1, h2, h3, h4, h5, h6, p, button {
   justify-content: flex-start; /* Start from left */
 }
 
-/* Logo image in the header - pushed to the left */
+/* Logo image in the header - different for mobile and desktop */
 .logo-img {
   width: 200px; /* Smaller logo for header */
   display: block;
   margin: 0; /* Remove auto margins to keep it left */
+}
+
+/* Mobile logo styling */
+.mobile-logo {
+  display: none; /* Hidden on desktop */
+  width: 30px; /* Even smaller size for Jerry image */
+  height: auto; /* Keep original aspect ratio */
+  border-radius: 0; /* Remove circular shape to keep original */
+  object-fit: contain; /* Preserve original shape and prevent cropping */
+}
+
+/* Desktop logo styling */
+.desktop-logo {
+  display: block; /* Shown on desktop */
 }
 
 /* Navigation menu in the header */
@@ -181,6 +195,20 @@ h1, h2, h3, h4, h5, h6, p, button {
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); /* Enhanced shadow on hover */
 }
 
+/* Desktop CTA button */
+.desktop-cta {
+  display: block; /* Shown on desktop */
+}
+
+/* Mobile CTA button */
+.mobile-cta {
+  display: none; /* Hidden on desktop */
+  margin-left: auto; /* Push to the right */
+  margin-right: 20px; /* Add small right margin to prevent cutoff */
+  font-size: 0.9em; /* Slightly smaller on mobile */
+  padding: 10px 18px; /* Smaller padding for mobile */
+}
+
 /* Mobile menu toggle button - hidden by default */
 .mobile-menu-toggle {
   display: none; /* Hidden on desktop */
@@ -192,8 +220,8 @@ h1, h2, h3, h4, h5, h6, p, button {
   width: 30px;
   height: 30px;
   padding: 0;
-  margin-left: auto;
-  margin-right: 24px;
+  margin-right: 10px; /* Small space between hamburger and Jerry logo */
+  order: 0; /* Put hamburger first in flex order */
 }
 
 /* Hamburger lines */
@@ -229,13 +257,13 @@ h1, h2, h3, h4, h5, h6, p, button {
 .mobile-menu {
   position: fixed;
   top: 0;
-  right: 0;
+  left: 0; /* Changed from right to left */
   width: 300px;
   max-width: 80vw;
   height: 100vh;
   background-color: white;
-  box-shadow: -2px 0 10px rgba(0, 0, 0, 0.1);
-  transform: translateX(100%); /* Start off-screen */
+  box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1); /* Changed shadow direction */
+  transform: translateX(-100%); /* Start off-screen to the left */
   transition: transform 0.3s ease;
   overflow-y: auto;
   z-index: 2001;
@@ -243,7 +271,7 @@ h1, h2, h3, h4, h5, h6, p, button {
 
 /* Show mobile menu when active */
 .mobile-menu-overlay.active .mobile-menu {
-  transform: translateX(0); /* Slide in */
+  transform: translateX(0); /* Slide in from left */
 }
 
 /* Mobile menu header */
@@ -364,13 +392,20 @@ h1, h2, h3, h4, h5, h6, p, button {
 @media (max-width: 768px) {
   .header {
     flex-direction: row; /* Keep horizontal layout for mobile */
-    padding: 12px 16px; /* Smaller padding */
+    padding: 5px 5px; /* Smaller padding */
     align-items: center; /* Center align header content */
-    justify-content: space-between; /* Space between logo and menu */
+    justify-content: flex-start; /* Start from left for hamburger */
   }
   
-  .logo-img {
-    width: 160px; /* Smaller logo on mobile */
+  /* Hide desktop logo, show mobile logo */
+  .desktop-logo {
+    display: none;
+  }
+  
+  .mobile-logo {
+    display: block;
+    margin-left: 0; /* No left margin - directly next to hamburger */
+    order: 1; /* Second in order after hamburger */
   }
   
   /* Hide desktop navigation on mobile */
@@ -378,18 +413,24 @@ h1, h2, h3, h4, h5, h6, p, button {
     display: none;
   }
   
-  /* Hide desktop CTA button on mobile */
-  .header-cta {
+  /* Hide desktop CTA button, show mobile CTA */
+  .desktop-cta {
     display: none;
+  }
+  
+  .mobile-cta {
+    display: block;
+    order: 2; /* Third in order (rightmost) */
   }
   
   /* Show mobile menu toggle button */
   .mobile-menu-toggle {
     display: flex;
+    order: 0; /* First in order (leftmost) */
   }
   
   .container {
-    padding-top: 80px; /* Less space needed for simpler mobile header */
+    padding-top: 0px; /* Minimal space to avoid overlap with header */
   }
   
   .content {
@@ -400,35 +441,29 @@ h1, h2, h3, h4, h5, h6, p, button {
   }
   
   .text-content {
-    padding: 40px 20px; /* Good padding for text */
+    padding: 10px 5px; /* Reduced padding for less white space */
     max-width: 100%; /* Full width */
     order: 1; /* Put text first */
-    min-height: 70vh; /* Take up most of the screen */
+    min-height: 75vh; /* Take up most of the screen */
     display: flex;
     flex-direction: column;
-    justify-content: center; /* Center the text vertically */
+    justify-content: flex-start; /* Align to top instead of center */
+    align-items: flex-start; /* Align to the left side */
+    text-align: left; /* Left align the text */
     background: 
       url('img/wave.jpg') no-repeat center center; /* Wave background for text section */
-    background-size: cover;
+    background-size: cover; /* Make wave image bigger */
     position: relative;
   }
   
-  /* Add overlay to ensure text readability over wave background */
-  .text-content::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: rgba(255, 255, 255, 0.8); /* Semi-transparent white overlay */
-    z-index: 1;
-  }
+  /* Remove overlay to show wave background clearly */
   
-  /* Ensure text appears above overlay */
+  /* Ensure text appears above background */
   .text-content > * {
     position: relative;
     z-index: 2;
+    color: #1a1a1a; /* Ensure text is black and visible */
+    text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.8); /* Light text shadow for readability */
   }
   
   .image-content {
@@ -436,7 +471,7 @@ h1, h2, h3, h4, h5, h6, p, button {
     margin: 0; /* Remove margins */
     text-align: center; /* Center the image */
     padding: 40px 20px; /* Padding around image */
-    background-color: white; /* White background for image section */
+    background: transparent; /* Transparent background to show wave */
     min-height: 50vh; /* Give image section good height */
     display: flex;
     align-items: center;
@@ -444,18 +479,21 @@ h1, h2, h3, h4, h5, h6, p, button {
   }
   
   .main-headline {
-    font-size: 2.8em !important; /* Much smaller headline for mobile */
-    text-align: center; /* Center align */
-    margin-bottom: 15px; /* Smaller margin */
-    line-height: 1.1; /* Tighter line spacing */
+    font-size: 5.5em !important; /* Double the size - much larger headline for mobile */
+    text-align: left; /* Left align instead of center */
+    margin-bottom: 25px; /* Good margin */
+    line-height: 1.0; /* Tighter line spacing */
+    max-width: 95%; /* More width */
+    padding-left: 10px; /* Move more to the left */
   }
   
   .subheadline {
-    font-size: 1.1em; /* Smaller subheadline */
-    text-align: center; /* Center align */
-    margin-bottom: 20px; /* Add bottom margin */
-    line-height: 1.3; /* Better line spacing */
-    padding: 0 10px; /* Add some padding */
+    font-size: 2.6em; /* Double the size - much larger subheadline */
+    text-align: left; /* Left align instead of center */
+    margin-bottom: 30px; /* Add bottom margin */
+    line-height: 1.2; /* Better line spacing */
+    max-width: 90%; /* More width */
+    padding-left: 5px; /* Move more to the left */
   }
   
   .impact-photo {
@@ -470,12 +508,19 @@ h1, h2, h3, h4, h5, h6, p, button {
     padding: 10px 15px; /* Even smaller padding */
   }
   
-  .logo-img {
-    width: 140px; /* Even smaller logo */
+  .mobile-logo {
+    width: 35px; /* Smaller Jerry image for 480px screens */
   }
   
   .mobile-menu-toggle {
-    margin-right: 15px; /* Adjust margin for smaller screens */
+    margin-right: 8px; /* Adjust margin for smaller screens */
+    width: 25px; /* Smaller toggle button */
+    height: 25px;
+  }
+  
+  .mobile-cta {
+    font-size: 0.8em; /* Even smaller on small screens */
+    padding: 8px 15px; /* Smaller padding */
   }
   
   .container {
@@ -488,39 +533,33 @@ h1, h2, h3, h4, h5, h6, p, button {
   }
   
   .text-content {
-    padding: 30px 15px; /* Better mobile padding */
+    padding: 15px 10px; /* Minimal padding for less white space */
     min-height: 75vh; /* Take up most of screen */
     display: flex;
     flex-direction: column;
-    justify-content: center; /* Center content vertically */
+    justify-content: flex-start; /* Align to top instead of center */
+    align-items: flex-start; /* Align to the left side */
+    text-align: left; /* Left align the text */
     background: 
       url('img/wave.jpg') no-repeat center center; /* Wave background */
-    background-size: cover;
+    background-size: cover; /* Make wave image bigger */
     position: relative;
   }
   
-  /* Overlay for text readability */
-  .text-content::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: rgba(255, 255, 255, 0.85); /* Slightly more opaque on small screens */
-    z-index: 1;
-  }
+  /* Remove overlay for clear wave background */
   
-  /* Ensure text appears above overlay */
+  /* Ensure text appears above background */
   .text-content > * {
     position: relative;
     z-index: 2;
+    color: #1a1a1a; /* Ensure text is black and visible */
+    text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.8); /* Light text shadow for readability */
   }
   
   .image-content {
     order: 2; /* Image below text */
     padding: 30px 15px; /* Good padding around image */
-    background-color: white; /* White background */
+    background: transparent; /* Transparent background to show wave */
     min-height: 40vh; /* Good height for image section */
     display: flex;
     align-items: center;
@@ -528,16 +567,20 @@ h1, h2, h3, h4, h5, h6, p, button {
   }
   
   .main-headline {
-    font-size: 2.2em !important; /* Much smaller headline */
-    margin-bottom: 12px; /* Smaller margin */
-    line-height: 1.0; /* Very tight line spacing */
+    font-size: 5.6em !important; /* Double the size - larger headline */
+    margin-bottom: 20px; /* Good margin */
+    margin-top: 10px; /* Small top margin */
+    line-height: 1.0; /* Good line spacing */
+    text-align: left; /* Left align */
+    padding-left: 8px; /* Move more to the left */
   }
   
   .subheadline {
-    font-size: 1.0em; /* Smaller subheadline */
-    line-height: 1.3; /* Good readability */
-    margin-bottom: 15px; /* Smaller margin */
-    padding: 0 5px; /* Side padding */
+    font-size: 2.4em; /* Double the size - larger subheadline */
+    line-height: 1.2; /* Good readability */
+    text-align: left; /* Left align */
+    margin-bottom: 20px; /* Good margin */
+    padding-left: 8px; /* Move more to the left */
   }
   
   .impact-photo {
@@ -566,18 +609,23 @@ h1, h2, h3, h4, h5, h6, p, button {
     padding: 8px 10px; /* Minimal padding */
   }
   
-  .logo-img {
-    width: 120px; /* Very small logo */
+  .mobile-logo {
+    width: 30px; /* Very small Jerry image for 360px screens */
   }
   
   .mobile-menu-toggle {
-    margin-right: 10px; /* Minimal margin */
-    width: 25px; /* Smaller toggle button */
-    height: 25px;
+    margin-right: 6px; /* Minimal margin */
+    width: 22px; /* Very small toggle button */
+    height: 22px;
+  }
+  
+  .mobile-cta {
+    font-size: 0.75em; /* Very small button text */
+    padding: 6px 12px; /* Compact button */
   }
   
   .container {
-    padding-top: 60px; /* Minimal space for compact header */
+    padding-top: 45px; /* Minimal space for compact header */
   }
   
   .content {
@@ -586,39 +634,33 @@ h1, h2, h3, h4, h5, h6, p, button {
   }
   
   .text-content {
-    padding: 25px 10px; /* Minimal but adequate padding */
+    padding: 10px 5px; /* Minimal padding for small screens */
     min-height: 80vh; /* Take up most of screen */
     display: flex;
     flex-direction: column;
-    justify-content: center; /* Center content vertically */
+    justify-content: flex-start; /* Align to top instead of center */
+    align-items: flex-start; /* Align to the left side */
+    text-align: left; /* Left align the text */
     background: 
       url('img/wave.jpg') no-repeat center center; /* Wave background */
-    background-size: cover;
+    background-size: cover; /* Make wave image bigger */
     position: relative;
   }
   
-  /* Overlay for text readability on small screens */
-  .text-content::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: rgba(255, 255, 255, 0.9); /* High opacity for readability */
-    z-index: 1;
-  }
+  /* Remove overlay for clear wave background */
   
-  /* Ensure text appears above overlay */
+  /* Ensure text appears above background */
   .text-content > * {
     position: relative;
     z-index: 2;
+    color: #1a1a1a; /* Ensure text is black and visible */
+    text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.8); /* Light text shadow for readability */
   }
   
   .image-content {
     order: 2; /* Image below text */
     padding: 25px 10px; /* Minimal padding */
-    background-color: white; /* White background */
+    background: transparent; /* Transparent background to show wave */
     min-height: 35vh; /* Adequate height for image */
     display: flex;
     align-items: center;
@@ -626,16 +668,20 @@ h1, h2, h3, h4, h5, h6, p, button {
   }
   
   .main-headline {
-    font-size: 1.8em !important; /* Very small headline for tiny screens */
-    margin-bottom: 10px; /* Minimal margin */
-    line-height: 0.95; /* Very tight spacing */
+    font-size: 4.4em !important; /* Double the size - larger headline for tiny screens */
+    margin-bottom: 15px; /* Good margin */
+    margin-top: 8px; /* Small top margin */
+    line-height: 0.9; /* Tight spacing for better fit */
+    text-align: left; /* Left align */
+    padding-left: 5px; /* Move more to the left */
   }
   
   .subheadline {
-    font-size: 0.9em; /* Very small subheadline */
-    line-height: 1.2; /* Tight but readable */
-    margin-bottom: 12px; /* Small margin */
-    padding: 0; /* No padding */
+    font-size: 2.0em; /* Double the size - larger subheadline */
+    text-align: left; /* Left align */
+    line-height: 1.1; /* Tight but readable */
+    margin-bottom: 15px; /* Good margin */
+    padding-left: 5px; /* Move more to the left */
   }
   
   .impact-photo {

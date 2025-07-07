@@ -12,7 +12,16 @@
 <body>
   <!-- Fixed header at the top -->
   <header class="header">
-    <img src="img/cw_logo-2.png" alt="charity: water logo" class="logo-img">
+    <!-- Mobile menu toggle button -->
+    <button class="mobile-menu-toggle" aria-label="Open mobile menu">
+      <span class="hamburger-line"></span>
+      <span class="hamburger-line"></span>
+      <span class="hamburger-line"></span>
+    </button>
+    
+    <!-- Logo - different for mobile and desktop -->
+    <img src="img/cw_logo-2.png" alt="charity: water logo" class="logo-img desktop-logo">
+    <img src="img/jerry1.png" alt="charity: water logo" class="logo-img mobile-logo">
     
     <!-- Desktop navigation menu -->
     <nav class="nav-menu">
@@ -43,14 +52,10 @@
     </nav>
     
     <!-- Desktop CTA button -->
-    <button class="header-cta">See Your Impact</button>
+    <button class="header-cta desktop-cta">See Your Impact</button>
     
-    <!-- Mobile menu toggle button -->
-    <button class="mobile-menu-toggle" aria-label="Open mobile menu">
-      <span class="hamburger-line"></span>
-      <span class="hamburger-line"></span>
-      <span class="hamburger-line"></span>
-    </button>
+    <!-- Mobile CTA button -->
+    <button class="header-cta mobile-cta">See Your Impact</button>
   </header>
 
   <!-- Mobile slide-in menu -->
@@ -85,7 +90,6 @@
         </div>
         <a href="#water" class="mobile-menu-item">Why Water?</a>
         <a href="#journey" class="mobile-menu-item">Our Journey</a>
-        <button class="mobile-cta-button">See Your Impact</button>
       </div>
     </nav>
   </div>
