@@ -13,6 +13,8 @@
   <!-- Fixed header at the top -->
   <header class="header">
     <img src="img/cw_logo-2.png" alt="charity: water logo" class="logo-img">
+    
+    <!-- Desktop navigation menu -->
     <nav class="nav-menu">
       <div class="dropdown">
         <a href="#about" class="dropdown-toggle">About Us <img src="img/waterdrop.png" alt="dropdown arrow" class="arrow"></a>
@@ -39,8 +41,54 @@
       <a href="#water">Why Water?</a>
       <a href="#journey">Our Journey</a>
     </nav>
+    
+    <!-- Desktop CTA button -->
     <button class="header-cta">See Your Impact</button>
+    
+    <!-- Mobile menu toggle button -->
+    <button class="mobile-menu-toggle" aria-label="Open mobile menu">
+      <span class="hamburger-line"></span>
+      <span class="hamburger-line"></span>
+      <span class="hamburger-line"></span>
+    </button>
   </header>
+
+  <!-- Mobile slide-in menu -->
+  <div class="mobile-menu-overlay" id="mobileMenuOverlay">
+    <nav class="mobile-menu" id="mobileMenu">
+      <div class="mobile-menu-header">
+        <img src="img/cw_logo-2.png" alt="charity: water logo" class="mobile-menu-logo">
+        <button class="mobile-menu-close" aria-label="Close mobile menu">×</button>
+      </div>
+      <div class="mobile-menu-content">
+        <div class="mobile-menu-section">
+          <a href="#about" class="mobile-menu-item">About Us</a>
+          <div class="mobile-submenu">
+            <a href="#our-story" class="mobile-submenu-item">Our Story</a>
+            <a href="#mission" class="mobile-submenu-item">Our Mission</a>
+            <a href="#team" class="mobile-submenu-item">Our Team</a>
+            <a href="#impact" class="mobile-submenu-item">Our Impact</a>
+            <a href="#partners" class="mobile-submenu-item">Partners</a>
+            <a href="#financials" class="mobile-submenu-item">Financials</a>
+          </div>
+        </div>
+        <div class="mobile-menu-section">
+          <a href="#action" class="mobile-menu-item">Take Action</a>
+          <div class="mobile-submenu">
+            <a href="#donate" class="mobile-submenu-item">Donate Now</a>
+            <a href="#fundraise" class="mobile-submenu-item">Start Fundraising</a>
+            <a href="#volunteer" class="mobile-submenu-item">Volunteer</a>
+            <a href="#sponsor" class="mobile-submenu-item">Sponsor a Project</a>
+            <a href="#corporate" class="mobile-submenu-item">Corporate Partnership</a>
+            <a href="#events" class="mobile-submenu-item">Join Events</a>
+          </div>
+        </div>
+        <a href="#water" class="mobile-menu-item">Why Water?</a>
+        <a href="#journey" class="mobile-menu-item">Our Journey</a>
+        <button class="mobile-cta-button">See Your Impact</button>
+      </div>
+    </nav>
+  </div>
 
   <!-- Main container for the landing page -->
   <main class="container">

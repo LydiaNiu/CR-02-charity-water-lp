@@ -135,4 +135,89 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Simple animation for headlines when page loads - now handled by scroll animations
     // The scroll animation system will handle the initial fade-in effects
+    
+    // Mobile menu functionality
+    function setupMobileMenu() {
+        const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
+        const mobileMenuOverlay = document.querySelector('.mobile-menu-overlay');
+        const mobileMenuClose = document.querySelector('.mobile-menu-close');
+        const mobileMenu = document.querySelector('.mobile-menu');
+        
+        // Function to open mobile menu
+        function openMobileMenu() {
+            mobileMenuOverlay.classList.add('active');
+            document.body.style.overflow = 'hidden'; // Prevent background scrolling
+            
+            // Add hamburger animation (rotate lines to X)
+            const lines = mobileMenuToggle.querySelectorAll('.hamburger-line');
+            lines[0].style.transform = 'rotate(45deg) translate(6px, 6px)';
+            lines[1].style.opacity = '0';
+            lines[2].style.transform = 'rotate(-45deg) translate(6px, -6px)';
+        }
+        
+        // Function to close mobile menu
+        function closeMobileMenu() {
+            mobileMenuOverlay.classList.remove('active');
+            document.body.style.overflow = ''; // Restore background scrolling
+            
+            // Reset hamburger animation
+            const lines = mobileMenuToggle.querySelectorAll('.hamburger-line');
+            lines[0].style.transform = '';
+            lines[1].style.opacity = '1';
+            lines[2].style.transform = '';
+        }
+        
+        // Open menu when hamburger is clicked
+        if (mobileMenuToggle) {
+            mobileMenuToggle.addEventListener('click', function(e) {
+                e.preventDefault();
+                e.stopPropagation();
+                openMobileMenu();
+            });
+        }
+        
+        // Close menu when close button is clicked
+        if (mobileMenuClose) {
+            mobileMenuClose.addEventListener('click', function(e) {
+                e.preventDefault();
+                e.stopPropagation();
+                closeMobileMenu();
+            });
+        }
+        
+        // Close menu when overlay (background) is clicked
+        if (mobileMenuOverlay) {
+            mobileMenuOverlay.addEventListener('click', function(e) {
+                // Only close if clicking the overlay itself, not the menu content
+                if (e.target === mobileMenuOverlay) {
+                    closeMobileMenu();
+                }
+            });
+        }
+        
+        // Close menu when any menu link is clicked
+        const menuLinks = document.querySelectorAll('.mobile-menu-item, .mobile-submenu-item, .mobile-cta-button');
+        menuLinks.forEach(link => {
+            link.addEventListener('click', function() {
+                closeMobileMenu();
+            });
+        });
+        
+        // Close menu when Escape key is pressed
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape' && mobileMenuOverlay.classList.contains('active')) {
+                closeMobileMenu();
+            }
+        });
+        
+        // Handle window resize - close menu if switching to desktop view
+        window.addEventListener('resize', function() {
+            if (window.innerWidth > 768 && mobileMenuOverlay.classList.contains('active')) {
+                closeMobileMenu();
+            }
+        });
+    }
+    
+    // Call the mobile menu setup
+    setupMobileMenu();
 });
