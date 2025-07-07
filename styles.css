@@ -64,7 +64,7 @@ h1, h2, h3, h4, h5, h6, p, button {
 /* Mobile logo styling */
 .mobile-logo {
   display: none; /* Hidden on desktop */
-  width: 30px; /* Even smaller size for Jerry image */
+  width: 20px; /* Smaller Jerry logo for mobile */
   height: auto; /* Keep original aspect ratio */
   border-radius: 0; /* Remove circular shape to keep original */
   object-fit: contain; /* Preserve original shape and prevent cropping */
@@ -430,7 +430,7 @@ h1, h2, h3, h4, h5, h6, p, button {
   }
   
   .container {
-    padding-top: 0px; /* Minimal space to avoid overlap with header */
+    padding-top: 60px; /* Just enough space for fixed header */
   }
   
   .content {
@@ -441,7 +441,7 @@ h1, h2, h3, h4, h5, h6, p, button {
   }
   
   .text-content {
-    padding: 10px 5px; /* Reduced padding for less white space */
+    padding: 0; /* Remove all padding completely */
     max-width: 100%; /* Full width */
     order: 1; /* Put text first */
     min-height: 75vh; /* Take up most of the screen */
@@ -451,7 +451,7 @@ h1, h2, h3, h4, h5, h6, p, button {
     align-items: flex-start; /* Align to the left side */
     text-align: left; /* Left align the text */
     background: 
-      url('img/wave.jpg') no-repeat center center; /* Wave background for text section */
+      url('img/wave.jpg') no-repeat center -30vh; /* Move wave background much higher up */
     background-size: cover; /* Make wave image bigger */
     position: relative;
   }
@@ -479,21 +479,32 @@ h1, h2, h3, h4, h5, h6, p, button {
   }
   
   .main-headline {
-    font-size: 5.5em !important; /* Double the size - much larger headline for mobile */
+    font-size: 5.0em !important; /* Smaller headline for mobile */
     text-align: left; /* Left align instead of center */
-    margin-bottom: 25px; /* Good margin */
+    margin-bottom: 0px; /* Good margin */
+    margin-top: 250px; /* Lower the headline even more */
+    margin-left: 40px !important; /* Move headline a little bit to the right */
+    margin-right: 40px; /* Increase right margin for better spacing */
     line-height: 1.0; /* Tighter line spacing */
     max-width: 95%; /* More width */
-    padding-left: 10px; /* Move more to the left */
+    padding-left: 0 !important; /* Remove all left padding completely */
+    padding-right: 0; /* No right padding */
+    position: relative;
+    left: 0 !important; /* Ensure no left positioning offset */
+    transform: translateX(0) !important; /* Remove any transform positioning */
+    width: calc(100% - 60px); /* Take full width minus left and right margins */
   }
   
   .subheadline {
     font-size: 2.6em; /* Double the size - much larger subheadline */
     text-align: left; /* Left align instead of center */
     margin-bottom: 30px; /* Add bottom margin */
+    margin-top: 20px; /* Add some space below the headline */
+    margin-left: 40px; /* Match the headline's left margin */
+    margin-right: 40px; /* Match the headline's right margin */
     line-height: 1.2; /* Better line spacing */
     max-width: 90%; /* More width */
-    padding-left: 5px; /* Move more to the left */
+    padding-left: 0; /* No padding - all the way to the left */
   }
   
   .impact-photo {
@@ -509,7 +520,7 @@ h1, h2, h3, h4, h5, h6, p, button {
   }
   
   .mobile-logo {
-    width: 35px; /* Smaller Jerry image for 480px screens */
+    width: 20px; /* Smaller Jerry image for 480px screens */
   }
   
   .mobile-menu-toggle {
@@ -524,7 +535,7 @@ h1, h2, h3, h4, h5, h6, p, button {
   }
   
   .container {
-    padding-top: 70px; /* Adjust for simpler header */
+    padding-top: 55px; /* Minimal space for fixed header */
   }
   
   .content {
@@ -533,7 +544,8 @@ h1, h2, h3, h4, h5, h6, p, button {
   }
   
   .text-content {
-    padding: 15px 10px; /* Minimal padding for less white space */
+    padding: 0 !important; /* Remove ALL padding completely - force to leftmost */
+    margin: 0 !important; /* Remove all margins too */
     min-height: 75vh; /* Take up most of screen */
     display: flex;
     flex-direction: column;
@@ -541,9 +553,11 @@ h1, h2, h3, h4, h5, h6, p, button {
     align-items: flex-start; /* Align to the left side */
     text-align: left; /* Left align the text */
     background: 
-      url('img/wave.jpg') no-repeat center center; /* Wave background */
-    background-size: cover; /* Make wave image bigger */
+      url('img/wave.jpg') no-repeat left top; /* Move wave background to the very top and anchor to left */
+    background-size: 400% auto; /* Stretch wave image much wider to cover all white space on right */
     position: relative;
+    left: 0 !important; /* Force to leftmost position */
+    right: auto !important; /* Remove any right positioning */
   }
   
   /* Remove overlay for clear wave background */
@@ -567,20 +581,30 @@ h1, h2, h3, h4, h5, h6, p, button {
   }
   
   .main-headline {
-    font-size: 5.6em !important; /* Double the size - larger headline */
-    margin-bottom: 20px; /* Good margin */
-    margin-top: 10px; /* Small top margin */
+    font-size: 4.5em !important; /* Smaller headline for 480px screens */
+    margin-bottom: 0px; /* Good margin */
+    margin-top: 250px; /* Lower the headline even more */
+    margin-left: 40px !important; /* Move headline a little bit to the right */
+    margin-right: 40px; /* Increase right margin for better spacing */
     line-height: 1.0; /* Good line spacing */
     text-align: left; /* Left align */
-    padding-left: 8px; /* Move more to the left */
+    padding-left: 0 !important; /* Remove all left padding completely */
+    padding-right: 0; /* No right padding */
+    position: relative;
+    left: 0 !important; /* Ensure no left positioning offset */
+    transform: translateX(0) !important; /* Remove any transform positioning */
+    width: calc(100% - 60px); /* Take full width minus left and right margins */
   }
   
   .subheadline {
     font-size: 2.4em; /* Double the size - larger subheadline */
     line-height: 1.2; /* Good readability */
     text-align: left; /* Left align */
-    margin-bottom: 20px; /* Good margin */
-    padding-left: 8px; /* Move more to the left */
+    margin-bottom: 10px; /* Good margin */
+    margin-top: 20px; /* Add some space below the headline */
+    margin-left: 40px; /* Match the headline's left margin */
+    margin-right: 40px; /* Match the headline's right margin */
+    padding-left: 0; /* No padding - all the way to the left */
   }
   
   .impact-photo {
@@ -610,7 +634,7 @@ h1, h2, h3, h4, h5, h6, p, button {
   }
   
   .mobile-logo {
-    width: 30px; /* Very small Jerry image for 360px screens */
+    width: 18px; /* Very small Jerry image for 360px screens */
   }
   
   .mobile-menu-toggle {
@@ -625,7 +649,7 @@ h1, h2, h3, h4, h5, h6, p, button {
   }
   
   .container {
-    padding-top: 45px; /* Minimal space for compact header */
+    padding-top: 40px; /* Minimal space for compact header */
   }
   
   .content {
@@ -634,7 +658,7 @@ h1, h2, h3, h4, h5, h6, p, button {
   }
   
   .text-content {
-    padding: 10px 5px; /* Minimal padding for small screens */
+    padding: 0; /* Remove all padding completely */
     min-height: 80vh; /* Take up most of screen */
     display: flex;
     flex-direction: column;
@@ -642,7 +666,7 @@ h1, h2, h3, h4, h5, h6, p, button {
     align-items: flex-start; /* Align to the left side */
     text-align: left; /* Left align the text */
     background: 
-      url('img/wave.jpg') no-repeat center center; /* Wave background */
+      url('img/wave.jpg') no-repeat center -50vh; /* Move wave background much higher up */
     background-size: cover; /* Make wave image bigger */
     position: relative;
   }
@@ -668,20 +692,30 @@ h1, h2, h3, h4, h5, h6, p, button {
   }
   
   .main-headline {
-    font-size: 4.4em !important; /* Double the size - larger headline for tiny screens */
-    margin-bottom: 15px; /* Good margin */
-    margin-top: 8px; /* Small top margin */
-    line-height: 0.9; /* Tight spacing for better fit */
+    font-size: 4em !important; /* Smaller headline for very small screens */
+    margin-bottom: 0px; /* Good margin */
+    margin-top: 250px; /* Lower the headline even more */
+    margin-left: 40px !important; /* Move headline a little bit to the right */
+    margin-right: 40px; /* Increase right margin for better spacing */
+    line-height: 1.0; /* Good line spacing */
     text-align: left; /* Left align */
-    padding-left: 5px; /* Move more to the left */
+    padding-left: 0 !important; /* Remove all left padding completely */
+    padding-right: 0; /* No right padding */
+    position: relative;
+    left: 0 !important; /* Ensure no left positioning offset */
+    transform: translateX(0) !important; /* Remove any transform positioning */
+    width: calc(100% - 60px); /* Take full width minus left and right margins */
   }
   
   .subheadline {
     font-size: 2.0em; /* Double the size - larger subheadline */
     text-align: left; /* Left align */
-    line-height: 1.1; /* Tight but readable */
-    margin-bottom: 15px; /* Good margin */
-    padding-left: 5px; /* Move more to the left */
+    line-height: 1.2; /* Good readability */
+    margin-bottom: 10px; /* Good margin */
+    margin-top: 20px; /* Add some space below the headline */
+    margin-left: 40px; /* Match the headline's left margin */
+    margin-right: 40px; /* Match the headline's right margin */
+    padding-left: 0; /* No padding - all the way to the left */
   }
   
   .impact-photo {
@@ -802,7 +836,7 @@ h1, h2, h3, h4, h5, h6, p, button {
   flex: 1;
   max-width: 600px;
   padding-left: 120px; /* Move text more to the right */
-  padding-top: 160px; /* Move text slightly higher up */
+  padding-top: 155px; /* Move text slightly higher up */
 }
 
 /* Image content area */
@@ -829,17 +863,17 @@ h1, h2, h3, h4, h5, h6, p, button {
   margin-left: 0;
   text-align: left; /* Left align text */
   font-weight: 400; /* Make the font thinner */
-  line-height: 1.1; /* Better line spacing */
+  line-height: 1.3; /* Increased line spacing for better readability */
 }
 
 /* Subheadline style */
 .subheadline {
   color: #1a1a1a; /* Black color */
-  font-size: 1.4em;
-  margin-top: 0;
+  font-size: 1.5em;
+  margin-top: 30px; /* Add more space below the headline */
   margin-bottom: 0;
   text-align: left; /* Left align text */
-  line-height: 1.4; /* Better line spacing for readability */
+  line-height: 1.7; /* Increased line spacing for better readability */
 }
 
 /* Call-to-action button styles */
