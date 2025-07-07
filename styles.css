@@ -120,6 +120,9 @@ h1, h2, h3, h4, h5, h6, p, button {
   display: inline-block; /* Ensure proper display */
   margin-left: 4px; /* Small space before arrow */
   transition: transform 0.2s ease; /* Smooth rotation transition */
+  width: 18px; /* Set width for waterdrop image */
+  height: 18px; /* Set height for waterdrop image */
+  vertical-align: middle; /* Align with text */
 }
 
 /* Rotate arrow on hover to create up/down effect */
