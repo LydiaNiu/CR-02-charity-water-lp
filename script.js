@@ -97,6 +97,42 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
     
+    // Touch-friendly dropdown menu handling
+    function setupTouchDropdowns() {
+        const dropdowns = document.querySelectorAll('.dropdown');
+        
+        dropdowns.forEach(dropdown => {
+            const dropdownLink = dropdown.querySelector('a');
+            
+            // Handle touch devices
+            if ('ontouchstart' in window) {
+                dropdownLink.addEventListener('click', function(e) {
+                    e.preventDefault(); // Prevent default link behavior
+                    
+                    // Close other dropdowns
+                    dropdowns.forEach(otherDropdown => {
+                        if (otherDropdown !== dropdown) {
+                            otherDropdown.classList.remove('active');
+                        }
+                    });
+                    
+                    // Toggle current dropdown
+                    dropdown.classList.toggle('active');
+                });
+                
+                // Close dropdown when clicking outside
+                document.addEventListener('click', function(e) {
+                    if (!dropdown.contains(e.target)) {
+                        dropdown.classList.remove('active');
+                    }
+                });
+            }
+        });
+    }
+    
+    // Call the touch dropdown setup
+    setupTouchDropdowns();
+
     // Simple animation for headlines when page loads - now handled by scroll animations
     // The scroll animation system will handle the initial fade-in effects
 });
