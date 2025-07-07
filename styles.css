@@ -209,7 +209,7 @@ h1, h2, h3, h4, h5, h6, p, button {
   }
   
   .logo-img {
-    width: 180px; /* Smaller logo on mobile */
+    width: 160px; /* Smaller logo on mobile */
     margin-bottom: 12px; /* Space below logo */
   }
   
@@ -221,7 +221,7 @@ h1, h2, h3, h4, h5, h6, p, button {
   }
   
   .nav-menu a {
-    font-size: 1em; /* Smaller font on mobile */
+    font-size: 0.95em; /* Smaller font on mobile */
     padding: 6px 12px; /* Smaller padding */
   }
   
@@ -232,38 +232,46 @@ h1, h2, h3, h4, h5, h6, p, button {
   }
   
   .container {
-    padding-top: 120px; /* More space for taller mobile header */
+    padding-top: 140px; /* More space for taller mobile header */
   }
   
   .content {
     flex-direction: column; /* Stack content vertically */
     text-align: center; /* Center align content */
+    padding: 0 20px; /* Add horizontal padding */
   }
   
   .text-content {
-    padding: 20px; /* Simple padding for mobile */
+    padding: 20px 10px; /* Much better mobile padding */
     max-width: 100%; /* Full width */
     order: 2; /* Put text below image */
+    padding-top: 30px !important; /* Override the desktop padding */
+    padding-left: 10px !important; /* Override the desktop padding */
   }
   
   .image-content {
     order: 1; /* Put image above text */
     margin-bottom: 20px; /* Space below image */
+    text-align: center; /* Center the image */
   }
   
   .main-headline {
-    font-size: 3.5em; /* Much smaller headline for mobile */
+    font-size: 2.8em !important; /* Much smaller headline for mobile */
     text-align: center; /* Center align */
+    margin-bottom: 15px; /* Smaller margin */
+    line-height: 1.1; /* Tighter line spacing */
   }
   
   .subheadline {
-    font-size: 1.2em; /* Slightly smaller subheadline */
+    font-size: 1.1em; /* Smaller subheadline */
     text-align: center; /* Center align */
     margin-bottom: 20px; /* Add bottom margin */
+    line-height: 1.3; /* Better line spacing */
+    padding: 0 10px; /* Add some padding */
   }
   
   .impact-photo {
-    max-width: 300px; /* Smaller photo for mobile */
+    max-width: 280px; /* Smaller photo for mobile */
     margin: 0 auto; /* Center the image */
   }
 }
@@ -271,56 +279,138 @@ h1, h2, h3, h4, h5, h6, p, button {
 /* Small mobile devices (480px and below) */
 @media (max-width: 480px) {
   .header {
-    padding: 8px 12px; /* Even smaller padding */
+    padding: 10px 15px; /* Even smaller padding */
   }
   
   .logo-img {
-    width: 150px; /* Even smaller logo */
+    width: 140px; /* Even smaller logo */
   }
   
   .nav-menu {
-    gap: 8px; /* Smaller gap */
+    gap: 12px; /* Smaller gap */
+    flex-direction: column; /* Stack nav items vertically on very small screens */
   }
   
   .nav-menu a {
     font-size: 0.9em; /* Even smaller font */
-    padding: 4px 8px; /* Smaller padding */
+    padding: 8px 12px; /* Better touch targets */
   }
   
   .header-cta {
     font-size: 0.9em; /* Smaller button text */
-    padding: 8px 16px; /* Smaller button */
+    padding: 10px 18px; /* Better proportions */
+    margin-top: 15px; /* More space above button */
   }
   
   .container {
-    padding-top: 140px; /* Even more space for header */
+    padding-top: 180px; /* More space for much taller mobile header */
+  }
+  
+  .content {
+    padding: 0 15px; /* Better side padding */
   }
   
   .text-content {
-    padding: 15px; /* Smaller padding */
+    padding: 15px 5px !important; /* Override desktop padding completely */
+    padding-top: 20px !important; /* Much less top padding */
+    padding-left: 5px !important; /* Minimal left padding */
   }
   
   .main-headline {
-    font-size: 2.5em; /* Much smaller headline */
-    margin-bottom: 15px; /* Smaller margin */
+    font-size: 2.2em !important; /* Much smaller headline */
+    margin-bottom: 12px; /* Smaller margin */
+    line-height: 1.0; /* Very tight line spacing */
   }
   
   .subheadline {
-    font-size: 1.1em; /* Smaller subheadline */
+    font-size: 1.0em; /* Smaller subheadline */
+    line-height: 1.3; /* Good readability */
+    margin-bottom: 15px; /* Smaller margin */
+    padding: 0 5px; /* Side padding */
   }
   
   .impact-photo {
-    max-width: 250px; /* Even smaller photo */
+    max-width: 220px; /* Even smaller photo */
   }
   
   .cta-button {
-    font-size: 1.1em; /* Smaller CTA button */
-    padding: 15px 30px; /* Smaller padding */
+    font-size: 1.0em; /* Smaller CTA button */
+    padding: 12px 25px; /* Smaller padding */
+    margin-top: 15px; /* Less top margin */
   }
   
   /* Hide dropdown arrows on very small screens for cleaner look */
   .arrow {
-    display: none;
+    width: 14px; /* Smaller arrows */
+    height: 14px;
+  }
+}
+
+/* Very small mobile devices (360px and below) - iPhone SE, etc. */
+@media (max-width: 360px) {
+  .header {
+    padding: 8px 10px; /* Minimal padding */
+  }
+  
+  .logo-img {
+    width: 120px; /* Very small logo */
+  }
+  
+  .nav-menu {
+    gap: 8px; /* Minimal gap */
+  }
+  
+  .nav-menu a {
+    font-size: 0.8em; /* Very small font */
+    padding: 6px 8px; /* Compact padding */
+  }
+  
+  .header-cta {
+    font-size: 0.8em; /* Very small button text */
+    padding: 8px 15px; /* Compact button */
+    margin-top: 10px; /* Less space */
+  }
+  
+  .container {
+    padding-top: 200px; /* Extra space for tall header */
+  }
+  
+  .content {
+    padding: 0 10px; /* Minimal side padding */
+  }
+  
+  .text-content {
+    padding: 10px 0 !important; /* Minimal padding */
+    padding-top: 15px !important; /* Very little top padding */
+    padding-left: 0 !important; /* No left padding */
+  }
+  
+  .main-headline {
+    font-size: 1.8em !important; /* Very small headline for tiny screens */
+    margin-bottom: 10px; /* Minimal margin */
+    line-height: 0.95; /* Very tight spacing */
+  }
+  
+  .subheadline {
+    font-size: 0.9em; /* Very small subheadline */
+    line-height: 1.2; /* Tight but readable */
+    margin-bottom: 12px; /* Small margin */
+    padding: 0; /* No padding */
+  }
+  
+  .impact-photo {
+    max-width: 180px; /* Very small photo */
+  }
+  
+  .cta-button {
+    font-size: 0.9em; /* Small CTA button */
+    padding: 10px 20px; /* Compact padding */
+    margin-top: 12px; /* Small top margin */
+  }
+  
+  .arrow {
+    width: 12px; /* Very small arrows */
+    height: 12px;
   }
 }
 
@@ -422,6 +512,7 @@ h1, h2, h3, h4, h5, h6, p, button {
   margin-left: 0;
   text-align: left; /* Left align text */
   font-weight: 400; /* Make the font thinner */
+  line-height: 1.1; /* Better line spacing */
 }
 
 /* Subheadline style */
@@ -431,10 +522,7 @@ h1, h2, h3, h4, h5, h6, p, button {
   margin-top: 0;
   margin-bottom: 0;
   text-align: left; /* Left align text */
-  text-shadow: 
-    0 1px 2px rgba(0, 0, 0, 0.08), /* Subtle drop shadow */
-    0 2px 4px rgba(0, 0, 0, 0.04), /* Softer outer shadow */
-    0 1px 0 rgba(255, 255, 255, 0.6); /* Light inner highlight */
+  line-height: 1.4; /* Better line spacing for readability */
 }
 
 /* Call-to-action button styles */
