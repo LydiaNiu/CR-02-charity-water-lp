@@ -20,7 +20,7 @@ document.addEventListener('DOMContentLoaded', function() {
             rootMargin: '0px 0px -50px 0px' // Start animation 50px before element enters view
         });
         
-        // Find all elements that should animate on scroll
+        // Find all elements that should animate on scroll (excluding container)
         const animatedElements = document.querySelectorAll('.main-headline, .subheadline, .impact-photo, .header');
         
         // Set initial styles for elements (hidden state)
@@ -32,6 +32,18 @@ document.addEventListener('DOMContentLoaded', function() {
             // Start observing each element
             observer.observe(element);
         });
+        
+        // Handle wave background separately - fade in immediately when page loads
+        const container = document.querySelector('.container');
+        if (container) {
+            container.style.opacity = '0';
+            container.style.transition = 'opacity 1s ease';
+            
+            // Fade in the wave background after a short delay
+            setTimeout(() => {
+                container.style.opacity = '1';
+            }, 200);
+        }
         
         // Add CSS class for fade-in animation
         const style = document.createElement('style');
